@@ -4,7 +4,9 @@ from playsound import playsound
 import mysql.connector
 import speech_recognition as sr
 from gtts import gTTS
+import gtts
 flag1 = 0
+import tkinter as tk
 from tkinter import *
 from tkinter import font
 from tkinter.font import Font
@@ -43,20 +45,20 @@ root = Tk()
 root.title("T.O.D.S.A")
 root.geometry("800x500")
 root.configure(background="black")
-photo = PhotoImage(file = "./gifs/1124.png")
-root.iconphoto(False, photo)
+photo = PhotoImage(file = "./gifs/3974294.png")
+root.iconphoto(True, photo)
 
 fontText = Font(size = 20, weight = "bold")
 text1 = Label(root,text="মই আপোনাক কেনেকৈ সহায় কৰিব পাৰো ?",font=fontText,fg="yellow",background="black",anchor=CENTER,justify=CENTER,wraplength=600)
 text1.pack(pady=50)
 
 
-class Example(Frame):
+class backgroundC(Frame):
     def __init__(self, master, *pargs):
         Frame.__init__(self, master, *pargs)
 
         
-        self.image = Image.open("./gifs/1124.png")
+        self.image = Image.open("./gifs/3974294.png")
         self.img_copy= self.image.copy()
 
 
@@ -347,7 +349,7 @@ def prepareAudio(audio_in_file: String):
     song = AudioSegment.from_wav(audio_in_file)
     final_song = one_sec_segment + song
     counter = 0
-    filename = "./coocked/final{}.wav"
+    filename = "./cooked/final{}.wav"
     while os.path.isfile(filename.format(counter)):
         counter += 1
     filename = filename.format(counter)
@@ -394,7 +396,7 @@ def assam():
             if duration>0.30:
                 prepareAudio(filename)
         os.remove(filename)
-    for filename in glob.glob('./coocked/*.wav'):
+    for filename in glob.glob('./cooked/*.wav'):
     #fname = filename.replace("./temp\\","")
         with contextlib.closing(wave.open(filename, 'r')) as f:
             frames = f.getnframes()
@@ -405,24 +407,40 @@ def assam():
                 t = (duration-1)*1000
                 print(duration)
                 print(filename)
-                # pydub does things in milliseconds
                 newAudio = AudioSegment.from_wav(filename)
                 newAudio = newAudio[:-t]
                 newAudio.export(filename, format="wav")
-    for filename in glob.glob('./coocked/*.wav'):
-       text.append(speech2text(filename))
+    for filename in glob.glob('./cooked/*.wav'):
+       text.append(speech2text(filename).replace("কি",""))
        os.remove(filename)
         
 
     
     text1.config(text=str.join(text))
+    if(str.join(text)=="ক্ৰম খোলা"):
+        text1.config(text=str.join(text))
+        tts = gtts.gTTS("chrom khula", lang="en")
+        tts.save("voice.mp3")
+        playsound("voice.mp3")
+        os.system("start chrome")
     print("process Complete")
     
               
 boldFont = Font(size = 10, weight = "bold")
-button1 = Button(root, text="কোৱা",height=2,background="black",fg="red",font=boldFont,command=assam)
-button1.pack(side=BOTTOM,expand=True,fill=BOTH)
-e = Example(root)
+
+button_frame = tk.Frame(root)
+button_frame.pack(fill=tk.X, side=tk.BOTTOM)
+
+assameseBtn = tk.Button(button_frame,text="অসমীয়াত কোৱা",height=2,background="black",fg="red",font=boldFont,command=assam)
+englishBtn = tk.Button(button_frame, text="Speak in english",height=2,background="black",fg="red",font=boldFont,command=test1)
+
+button_frame.columnconfigure(0, weight=1)
+button_frame.columnconfigure(1, weight=1)
+
+assameseBtn.grid(row=0, column=0, sticky=tk.W+tk.E)
+englishBtn.grid(row=0, column=1, sticky=tk.W+tk.E)
+
+e = backgroundC(root)
 e.pack(fill=BOTH, expand=YES)
 
 root.mainloop()
