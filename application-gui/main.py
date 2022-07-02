@@ -411,7 +411,7 @@ def assam():
                 newAudio = newAudio[:-t]
                 newAudio.export(filename, format="wav")
     for filename in glob.glob('./cooked/*.wav'):
-       text.append(speech2text(filename).replace("কি",""))
+       text.append(speech2text(filename))
        os.remove(filename)
         
 
