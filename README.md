@@ -22,13 +22,8 @@ We implemented these methodologies-
 There are other features present in this project all of them will be discussed elaborately later.
 </ul>
 
-
-
-
-1.7 Methodology of the project in brief 
- The working methodologies are show below using a work flow diagram the elaborate description will be on later chapters
  
-Figure 1:Methodology of TODSA
+
 
 
 
