@@ -1,35 +1,36 @@
-# Speech-to-text-in-Assamese
-Speech to text in Assamese using CNN model
-Word wise classified and mapped to text
-<h3>“Task oriented dialog system in native language (Assamese)” and its results experiments development methodologies. The name task-oriented dialog system simply refers to the technology where people can perform operation simply by giving voice commands to the device.
-And speech recognition system where audio sample is accepted by the application and converts this audio data to numerical form and predicts the spoken text by the user for Assamese language.
-We implemented these methodologies-
-•	I developed Assamese speech dataset 
-•	I developed CNN model to predict Assamese text from a given speech
-•	I used the trained model and developed desktop Application
-•	I used English and Assamese bilingual recognition process in the task-oriented dialog system application.
-</h3>
-<h3>Major feature of this project: -</h3>
-<ul>
-<li>Recognizes Assamese language</li>
-<li>Recognizes English language</li>
-<li>Predicts text for Assamese language</li>
-<li>Opens different applications present in the system</li>
-<li>Performs different operations on different application present in the system.</li>
-<li>Makes conversation with the user in simple topic</li>
-<li>People can update stored database manually</li>
-<li>Download contents from the internet using browser.</li> 
-There are other features present in this project all of them will be discussed elaborately later.
-</ul>
+# Task-Oriented Dialog System in Assamese (T.O.D.S.A.)
 
- 
+This repository contains the code for a Task-Oriented Dialog System (T.O.D.S.A.) implemented in the Assamese language. The system focuses on speech recognition and audio processing, allowing users to perform various operations through voice commands.
 
+## Project Overview
 
+The primary goal of this project is to enable users to interact with devices using voice commands in the native Assamese language. The key features and methodologies implemented include:
 
+- Creation of a specialized dataset for Assamese speech
+- Development of a CNN model for predicting Assamese text from speech data
+- Integration of the speech recognition system into a desktop application
+- Incorporation of both English and Assamese bilingual recognition processes
+- Utilization of Python, Bash script, SQL, and string processing for system functionality
 
+## Major Features
 
+The T.O.D.S.A. project offers several key features:
 
+- Recognition of both Assamese and English languages
+- Prediction of text for Assamese language
+- Execution of various system operations and applications through voice commands
+- Simple conversational interface with users
+- Manual updating of the stored database
+- Downloading of contents from the internet using a browser
 
-<h1>Instruction to use</h1>
-<h2>Create a database name "todsabase" to use english task oriented dialog system</h2>
+## Instruction for Use
 
+To use the English task-oriented dialog system, create a database named "todsabase".
+
+## Contributing
+
+If you wish to contribute to this project, please follow the guidelines outlined in the `CONTRIBUTING.md` file.
+
+## Acknowledgments
+
+We would like to acknowledge the contributions of all the individuals and organizations that have supported this project's development and implementation.
